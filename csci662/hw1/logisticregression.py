@@ -68,7 +68,7 @@ class LogisticRegression(Model):
         optimizer = optim.Adam(model.parameters(), lr=0.01)
         
         num_epochs = 10
-        for epoch in range(num_epochs):
+        for _ in range(num_epochs):
             for inputs, targets in dataloader:
                 optimizer.zero_grad()
                 outputs = model(inputs)

@@ -22,8 +22,8 @@ class NaiveBayes(Model):
         ## TODO write your code here
         features = Features(input_file)
         model = {
-            'class_counts': defaultdict(int),
-            'word_counts': defaultdict(lambda: defaultdict(int)),
+            'class_counts': defaultdict(int),   # select the class with more examples
+            'word_counts': defaultdict(lambda: defaultdict(int)),   # 
             'vocab': features.vocab,
             'labelset': features.labelset,
             'bpe_codes': features.bpe_codes,

@@ -5,14 +5,15 @@ from operator import methodcaller
 import string
 from collections import Counter
 import re
+from tqdm import tqdm
 
 def get_stats(vocab):
     pairs = Counter()
-    for word, freq in vocab.items():
-        symbols = word.split()
+    for word, freq in vocab.items():    
+        symbols = word.split()  # "h e l l o" -> "h" "e" "l" "l" "o"
         for i in range(len(symbols)-1):
-            pairs[symbols[i], symbols[i+1]] += freq
-    return pairs
+            pairs[symbols[i], symbols[i+1]] += freq # freq is the word freq. For each appearance of the word, add one pair freq for the pair.
+    return pairs    
 
 def merge_vocab(pair, v_in):
     v_out = {}
@@ -20,6 +21,8 @@ def merge_vocab(pair, v_in):
     p = re.compile(r'(?<!\S)' + bigram + r'(?!\S)')
     for word in v_in:
         w_out = p.sub(''.join(pair), word)
+        print(f"w_out: {w_out} word: {word}")
+        # print(w_out, word)
         v_out[w_out] = v_in[word]
     return v_out
 
@@ -37,25 +40,36 @@ class Features:
         data_split = map(methodcaller("rsplit", "\t", 1), data)
         texts, self.labels = map(list, zip(*data_split))
 
+        print(len(texts), len(self.labels))
+        # print(texts[0], self.labels[0])
+
         self.tokenized_text = [tokenize(text) for text in texts]
         self.labelset = list(set(self.labels))
+
+        # print(self.tokenized_text[0], self.labelset)
         
         # BPE
-        vocab = Counter(word for text in self.tokenized_text for word in text)
-        vocab = {' '.join(word): count for word, count in vocab.items()}
+        vocab = Counter(word for text in self.tokenized_text for word in text)  # {"hello": 3}
+        vocab = {' '.join(word): count for word, count in vocab.items()}    # {"h e l l o": 3}
         
         self.bpe_codes = {}
-        for i in range(num_merges):
+        for i in tqdm(range(num_merges), desc="BPE Merging..."):
             pairs = get_stats(vocab)
             if not pairs:
                 break
             best = max(pairs, key=pairs.get)
+            # print(best)
             vocab = merge_vocab(best, vocab)
             self.bpe_codes[best] = i
 
+        
         self.vocab = set(vocab.keys())
+        # print(self.vocab)
 
     def apply_bpe(self, word):
+        '''
+            Return the correct word split according to the self.bpe_codes
+        '''
         word = ' '.join(word)
         while True:
             pairs = get_stats({word: 1})
