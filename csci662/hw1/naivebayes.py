@@ -7,8 +7,9 @@ Please refer to lecture notes Chapter 4 for more details
 """
 
 from Model import *
-from Features import Features
+from Features import Features, ValidationFeatures
 from collections import defaultdict
+from functools import partial
 import math
 
 class NaiveBayes(Model):
@@ -23,7 +24,7 @@ class NaiveBayes(Model):
         features = Features(input_file)
         model = {
             'class_counts': defaultdict(int),   # select the class with more examples
-            'word_counts': defaultdict(lambda: defaultdict(int)),   # 
+            'word_counts': defaultdict(partial(defaultdict, int)),   # 
             'vocab': features.vocab,
             'labelset': features.labelset,
             'bpe_codes': features.bpe_codes,
@@ -51,8 +52,8 @@ class NaiveBayes(Model):
         :return: predictions list
         """ 
         ## TODO write your code here
-        features = Features(input_file)
-        
+        features = ValidationFeatures(input_file, bpe_codes=model['bpe_codes'], vocab=model['vocab'])
+    
         preds = []
         for text in features.tokenized_text:
             scores = defaultdict(float)
@@ -61,13 +62,16 @@ class NaiveBayes(Model):
                 for word in text:
                     bpe_tokens = features.apply_bpe(word)
                     for token in bpe_tokens:
-                        word_count = model['word_counts'][label].get(token, 0) + 1  # Laplace smoothing
+                        word_count = model['word_counts'][label].get(token, 0) + 1  # +1 to avoid being 0
                         total_words = model['total_words'][label] + len(model['vocab'])
                         scores[label] += math.log(word_count / total_words)
             
             best_label = max(scores, key=scores.get)
             preds.append(best_label)
 
-        return preds
+        # Calculate accuracy
+        # correct_predictions = sum(1 for pred, true in zip(preds, gts) if pred == true)
+        # accuracy = correct_predictions / len(preds) if preds else 0
 
+        return preds
 
