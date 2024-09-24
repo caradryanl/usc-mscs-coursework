@@ -56,8 +56,8 @@ class LogisticRegression(Model):
         # num_epochs = 50
         # batch_size = 64
         # lr = 0.01
-        num_epochs = 30
-        batch_size = 16
+        num_epochs = 25
+        batch_size = 8
         lr = 0.01
         eps = 1e-15 
         length = len(features.tokenized_text)
