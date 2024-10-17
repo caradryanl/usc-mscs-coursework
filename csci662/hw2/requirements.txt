@@ -1,0 +1,7 @@
+transformers[torch]
+numpy<2
+datasets
+torch
+evaluate
+scikit-learn
+nltk
