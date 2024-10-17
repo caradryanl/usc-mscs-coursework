@@ -66,7 +66,7 @@ def do_eval(eval_set, model_dir, batch_size, out_file):
 
     tokenizer = AutoTokenizer.from_pretrained(model_dir)
 
-    tokenized_eval = eval_set.map(lambda x: tokenize_function(tokenizer, x),  batched=True)
+    tokenized_eval = eval_set.map(lambda x: tokenize_function(tokenizer, x),  batched=True,load_from_cache_file=False)
     data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
 
 
