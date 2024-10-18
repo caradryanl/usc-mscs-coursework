@@ -8,6 +8,8 @@ import random
 import torch
 import argparse
 import numpy as np
+from datasets import Dataset, concatenate_datasets
+
 
 # custom transformations you can import
 from utils import *
@@ -21,10 +23,9 @@ torch.cuda.manual_seed(0)
 # os.environ['TOKENIZERS_PARALLELISM'] = 'false'
 
 
-# Tokenize the input
+# # Tokenize the input
 def tokenize_function(tokenizer, examples):
     return tokenizer(examples["text"], padding="max_length", truncation=True)
-
 
 # Evaluation code
 accuracy = evaluate.load("accuracy")
@@ -37,16 +38,47 @@ def compute_metrics(eval_pred):
 # Core training function -- you can modify this signature as needed if you want to add hyperparams
 def do_train(model_name, train_set, eval_set, batch_size, epochs, lr, save_dir):
 
-    trainer = Trainer()
     ################################
     ##### YOUR CODE BEGINGS HERE ###
 
     # Implement training; use the jupyter notebook we went over in class as a guide
     # You will have to tokenize data, create a model, and run training; it should be fairly short code
 
+    # Tokenize data
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=2)
+    tokenized_train = train_set.map(lambda x: tokenize_function(tokenizer, x), batched=True)
+    tokenized_eval = eval_set.map(lambda x: tokenize_function(tokenizer, x), batched=True)
 
-    raise NotImplementedError
+    # Data collator
+    data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
 
+    # Define training arguments
+    training_args = TrainingArguments(
+        output_dir=save_dir,
+        learning_rate=lr,
+        per_device_train_batch_size=batch_size,
+        per_device_eval_batch_size=batch_size,
+        num_train_epochs=epochs,
+        weight_decay=0.01,
+        evaluation_strategy="epoch",
+        save_strategy="epoch",
+        load_best_model_at_end=True,
+    )
+
+    # Initialize Trainer
+    trainer = Trainer(
+        model=model,
+        args=training_args,
+        train_dataset=tokenized_train,
+        eval_dataset=tokenized_eval,
+        tokenizer=tokenizer,
+        data_collator=data_collator,
+        compute_metrics=compute_metrics,
+    )
+
+    # Train the model
+    trainer.train()
 
     ##### YOUR CODE ENDS HERE ######
 
@@ -88,9 +120,7 @@ def do_eval(eval_set, model_dir, batch_size, out_file):
 
 # Created an augmented training dataset
 def create_augmented_data(orig_dataset):
-
-
-    aug_dataset = None
+    aug_dataset = orig_dataset.copy()
 
     ################################
     ##### YOUR CODE BEGINGS HERE ###
@@ -99,15 +129,50 @@ def create_augmented_data(orig_dataset):
     # You should return a dataset called 'aug_dataset' -- this
     # will be for the original training split augmented with 5k random transformed examples from the training set.
 
+     # Get the size of the original training set
+    train_size = len(orig_dataset['train'])
+
+    # Generate 5000 random indices
+    random_indices = random.sample(range(train_size), 5000)
+
+    # Create lists to store augmented examples
+    augmented_texts = []
+    augmented_labels = []
+
+    # Apply transformations to the selected examples
+    for idx in random_indices:
+        original_example = orig_dataset['train'][idx]
+        transformed_example = custom_transform({'text': [original_example['text']]})
+        
+        # Check if the transformation was successful
+        if transformed_example is not None and 'text' in transformed_example:
+            augmented_texts.append(transformed_example['text'][0])
+            augmented_labels.append(original_example['label'])
+
+    # Get the original features
+    original_features = orig_dataset['train'].features
+
+    # Create a new dataset with the augmented examples, using the original features
+    augmented_dataset = Dataset.from_dict(
+        {'text': augmented_texts, 'label': augmented_labels},
+        features=original_features
+    )
+
+    # Concatenate the original training set with the augmented dataset
+    aug_dataset = concatenate_datasets([orig_dataset['train'], augmented_dataset])
 
 
-    raise NotImplementedError
-
+    # Create a new dataset dictionary with the augmented training set
+    return {
+        'train': aug_dataset,
+        'test': orig_dataset['test']
+    }
 
     ##### YOUR CODE ENDS HERE ######
 
     return aug_dataset
 
+    
 
 # Create a dataset for the transformed test set
 # you shouldn't have to change this but you can probably apply approaches from it elsewhere in your code
