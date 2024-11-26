@@ -1,0 +1,2 @@
+# python generator.py -r bm25 -n bm25 -k 1 -p huggingface -m models/gemma-2-2b -i datasets/question.dev.txt -o outputs/bm25_1_gemma_dev.answers.txt
+python generator.py -r tfidf -n tfidf -k 1 -p huggingface -m models/Llama-3.2-1B-Instruct -i datasets/question.dev.txt -o outputs/tfidf_1_llama_dev.answers.txt

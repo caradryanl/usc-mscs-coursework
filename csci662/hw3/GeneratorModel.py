@@ -3,7 +3,8 @@ import pickle
 
 
 PROMPT = """
-<you should define this prompt>
+You are a question answerer based on the given retrieval documents. The answer will not be too long and you should find the answer in the documents then focus simple key words. Just keep the first three answers.
+Documents: {retrieved_documents}. Question: {questions}. Answers:
 """
 
 class GeneratorModel(object, metaclass=ABCMeta):
@@ -17,5 +18,5 @@ class GeneratorModel(object, metaclass=ABCMeta):
         pass 
 
     @abstractmethod
-    def query(self, retrieved_documents, question):
+    def query(self, retrieved_documents, questions):
         pass

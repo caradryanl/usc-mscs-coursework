@@ -8,11 +8,9 @@ from RetrievalModel import *
 from typing import List, Dict
 
 
-class BM25(RetrievalModel):
-    def __init__(self, model_file, b=0.8, k=1.1):
+class TFIDF(RetrievalModel):
+    def __init__(self, model_file):
         super().__init__(model_file)
-        self.b = b  
-        self.k = k  
         self.doc_freqs = {}  
         self.term_freqs = {} 
         self.doc_lens = {}  
@@ -86,10 +84,9 @@ class BM25(RetrievalModel):
 
         self.save_model()
 
-    def bm25(self, query_terms: List[str], doc_id: str) -> float:
+    def tfidf(self, query_terms: List[str], doc_id: str) -> float:
         """Calculate BM25 score for a document."""
         score = 0.0
-        doc_len_norm = self.doc_lens[doc_id] / self.avg_doc_len
         
         for term in query_terms:
             term_freqs = {} if doc_id not in self.term_freqs.keys() else self.term_freqs[doc_id]
@@ -99,10 +96,7 @@ class BM25(RetrievalModel):
             tf = term_freqs[term]
             idf = 0 if term not in self.idf.keys() else self.idf[term]
             
-            # BM25 scoring formula
-            numerator = tf * (self.k + 1)
-            denominator = tf + self.k * (1 - self.b + self.b * doc_len_norm)
-            score += idf * numerator / denominator
+            score += idf * tf
             
         return score
 
@@ -113,14 +107,10 @@ class BM25(RetrievalModel):
         
         # Score all documents
         for doc_id in self.doc_lens.keys():
-            score = self.bm25(query_terms, doc_id)
+            score = self.tfidf(query_terms, doc_id)
             scores.append((doc_id, score))
             
         # Sort by score descending and return top k documents
         scores.sort(key=lambda x: x[1], reverse=True)
         top_docs = [self.documents[doc_id] for doc_id, _ in scores[0:int(k)]]
         return top_docs
-
-
-
-

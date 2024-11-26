@@ -1,6 +1,9 @@
 import argparse
 from ollama import *
 from bm25 import * 
+from tfidf import *
+from hgf import HuggingfaceModel
+from tqdm import tqdm
 
 def get_arguments():
     parser = argparse.ArgumentParser(description="Generator")
@@ -22,23 +25,43 @@ if __name__ == "__main__":
 
     if args.r == "bm25":
         retriever = BM25(args.n).load_model()
+    elif args.r ==  "tfidf":
+        retriever = TFIDF(args.n).load_model()
     else:
         retriever = None
 
     if args.p == 'ollama':
-        generator = OllamaModel(model_file=args.m)
-
+        generator = OllamaModel(model_name=args.m)
+    elif args.p == 'huggingface':
+        generator = HuggingfaceModel(model_name=args.m)
     else:
         ## TODO Add any other models you wish to train
         generator = None
 
     answers = []
-    questions = open(args.i).strip().splitlines()
-    for q in questions:
+
+    with open(args.i) as f:
+        # Skip first line if it's just a number
+        first_line = f.readline().strip()
+        if first_line.isdigit():
+            starting_pos = f.tell()
+        else:
+            f.seek(0)
+            starting_pos = 0
+        f.seek(starting_pos)
+        questions = f.read().strip().splitlines()
+    count = 0 
+    # Using tqdm with a descriptive progress bar
+    for q in tqdm(questions, desc="Processing Questions", total=len(questions)):
+        q = q.strip()
         docs = retriever.search(q, args.k)
         answer = generator.query(docs, q)
         answers.append(answer)
-    with open(args.o) as f:
+        count += 1
+        if count >= 3:
+            break
+        
+    with open(args.o, 'w') as f:
         for a in answers:
             f.write(a)
             f.write('\n')

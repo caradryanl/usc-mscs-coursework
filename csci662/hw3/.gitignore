@@ -1,1 +1,5 @@
 *.txt
+__pycache__/*
+models/*
+datasets/*
+!requirements.txt

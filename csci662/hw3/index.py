@@ -1,7 +1,7 @@
 import pickle
 import argparse
 from bm25 import *
-
+from tfidf import *
 
 def get_arguments():
     # Please do not change the naming of these command line options or delete them. You may add other options for other hyperparameters but please provide with that the default values you used
@@ -19,12 +19,14 @@ if __name__ == "__main__":
 
     if "bm25" in args.m:
         model = BM25(model_file=args.m)
+    elif "tfidf" in args.m:
+        model = TFIDF(model_file=args.m)
     else:
         ## TODO Add any other models you wish to evaluate
         model = None
         
     index = model.index(args.i)
     
-    ## Save the index
-    with open(args.o, "wb") as file:
-        pickle.dump(index, file)
+    # ## Save the index
+    # with open(args.o, "wb") as file:
+    #     pickle.dump(index, file)
