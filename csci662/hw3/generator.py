@@ -50,16 +50,12 @@ if __name__ == "__main__":
             starting_pos = 0
         f.seek(starting_pos)
         questions = f.read().strip().splitlines()
-    count = 0 
     # Using tqdm with a descriptive progress bar
     for q in tqdm(questions, desc="Processing Questions", total=len(questions)):
         q = q.strip()
         docs = retriever.search(q, args.k)
         answer = generator.query(docs, q)
         answers.append(answer)
-        count += 1
-        if count >= 3:
-            break
         
     with open(args.o, 'w') as f:
         for a in answers:
