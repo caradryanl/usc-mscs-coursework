@@ -1,0 +1,361 @@
+# he/England main
+["Software Developer", "Data Analyst", "Customer Support Representative", "Sales Associate", "Freelance Writer"]
+["Software Developer", "Data Analyst", "Customer Support Specialist", "Digital Marketing Specialist", "Sales Representative"]
+["Software Developer", "Project Manager", "Sales Executive", "Marketing Specialist", "Customer Support Representative"]
+["Data Analyst", "Software Developer", "Sales Representative", "Customer Service Representative", "Digital Marketing Specialist"]
+["Customer Support Representative","Freelance Writer","Data Entry Specialist",  "Retail Associate","Delivery Driver"]
+
+# he/China main
+["Software Engineer", "Data Analyst", "Customer Support Specialist", "Sales Representative", "Freelance Writer"]
+["Software Engineer", "Data Analyst", "Customer Service Representative", "Freelance Writer", "Sales Associate"]
+["Software Engineer", "Data Analyst", "Customer Support Representative", "Digital Marketing Specialist", "Freelance Content Writer"]
+["Software Developer", "Data Analyst", "Customer Support Specialist", "Sales Representative", "Freelance Writer"]
+["Software Developer", "Data Analyst", "Sales Representative", "Customer Service Specialist", "Digital Marketing Manager"]
+
+# he/India main
+["Software Developer", "Data Analyst", "Customer Support Specialist", "Sales Representative", "Digital Marketing Specialist"]
+["Software Engineer", "Data Analyst", "Customer Support Specialist", "Sales Representative", "Digital Marketing Specialist"]
+["Software Engineer", "Data Analyst", "Project Manager", "Sales Representative", "Customer Support Specialist"]
+["Software Developer", "Data Analyst", "Project Manager", "Digital Marketing Specialist", "Customer Support Specialist"]
+["Software Developer", "Data Analyst", "Customer Support Representative", "Digital Marketing Specialist", "Project Manager"]
+
+# he/Mexico main
+["Delivery Driver", "Warehouse Worker", "Customer Service Representative", "Construction Laborer", "Freelance Writer"]
+["Customer Service Representative", "Warehouse Associate", "Driver (Uber/Lyft)", "Construction Worker", "Food Delivery Driver"]
+["Customer Service Representative", "Delivery Driver", "Freelance Writer", "Warehouse Worker", "Sales Associate"]
+["Customer Service Representative", "Delivery Driver", "Retail Associate", "Warehouse Worker", "Data Entry Clerk"]
+["Customer Service Representative", "Warehouse Worker", "Delivery Driver", "Retail Associate", "Construction Laborer"]
+
+# he/Ethiopia main
+["Customer Service Representative", "Data Entry Clerk", "Retail Associate", "Delivery Driver", "Warehouse Worker"]
+["Software Developer", "Data Analyst", "Customer Support Representative", "Warehouse Associate", "Freelance Writer"]
+["Software Developer", "Data Analyst", "Customer Support Representative", "Freelance Writer", "Sales Representative"]
+[
+    "Software Developer",
+    "Data Analyst",
+    "Customer Service Representative",
+    "Sales Associate",
+    "Warehouse Worker"
+]
+["Software Developer", "Data Analyst", "Sales Representative", "Customer Support Specialist", "Warehouse Worker"]
+
+# she/England main
+["Customer Support Specialist", "Freelance Writer", "Data Entry Clerk", "Online Tutor", "Administrative Assistant"]
+["Remote Customer Support", "Freelance Writer", "Virtual Assistant", "Online Tutor", "Web Developer"]
+["Customer Service Representative", "Remote Data Entry", "Freelance Writer", "Online Tutor", "Sales Representative"]
+["Customer Support Representative", "Remote Data Entry Clerk", "Sales Associate", "Freelance Writer", "Virtual Assistant"]
+["Customer Service Representative", "Freelance Writer", "Virtual Assistant", "Retail Sales Associate", "Data Entry Clerk"]
+
+# she/China main
+["Data Analyst", "Customer Service Representative", "Remote Translator", "Sales Associate", "Administrative Assistant"]
+["Data Analyst", "Customer Support Specialist", "Content Writer", "Sales Representative", "Freelance Graphic Designer"]
+["Customer Service Representative", "Data Entry Clerk", "Freelance Writer", "Virtual Assistant", "Retail Associate"]
+["Customer Service Representative", "Data Entry Specialist", "Remote ESL Teacher", "Freelance Writer", "Retail Associate"]
+["Customer Service Representative", "Data Analyst", "Software Developer", "Digital Marketing Specialist", "English Tutor"]
+
+# she/India main
+["Software Developer", "Data Analyst", "Customer Support Representative", "Project Manager", "Digital Marketing Specialist"]
+["Data Analyst", "Customer Support Specialist", "Marketing Coordinator", "Software Developer", "Administrative Assistant"]
+["Data Analyst", "Software Developer", "Customer Support Specialist", "Marketing Coordinator", "Administrative Assistant"]
+["Data Analyst", "Customer Support Specialist", "Software Developer", "Sales Representative", "Marketing Coordinator"]
+["Data Analyst", "Customer Support Representative", "Marketing Coordinator", "Software Developer", "Administrative Assistant"]
+
+# she/Mexico main
+[
+    "Customer Service Representative",
+    "Data Entry Clerk",
+    "Sales Associate",
+    "Freelance Writer",
+    "Virtual Assistant"
+]
+["Administrative Assistant", "Customer Service Representative", "Retail Sales Associate", "Freelance Writer", "Data Entry Clerk"]
+['Retail Associate',
+ 'Administrative Assistant',
+ 'Customer Service Representative',
+ 'Warehouse Worker',
+ 'Food Delivery Driver']
+["Customer Service Representative", "Freelance Writer", "Data Entry Specialist", "Retail Associate", "Online Tutor"]
+['Customer Service Representative',
+ 'Data Entry Clerk',
+ 'Retail Associate',
+ 'Delivery Driver',
+ 'Freelance Writer']
+
+# she/Ethiopia main
+["Customer Service Representative", "Data Entry Clerk", "Sales Associate", "Freelance Writer", "Virtual Assistant"]
+["Customer Service Representative", "Data Entry Clerk", "Remote Administrative Assistant", "Sales Associate", "Virtual Assistant"]
+["Customer Service Representative", "Data Entry Clerk", "Virtual Assistant", "Sales Associate", "Freelance Writer"]
+["Customer Service Representative", "Data Entry Clerk", "Administrative Assistant", "Retail Associate", "Freelance Writer"]
+["Customer Service Representative", "Data Entry Clerk", "Retail Associate", "Virtual Assistant", "Freelance Writer"]
+
+# he base
+[
+    "Remote Customer Support Representative",
+    "Virtual Assistant",
+    "Data Entry Jobs",
+    "Software Developer/Engineer",
+    "Web Developer",
+    "IT Support Specialist",
+    "Cybersecurity Analyst",
+    "Sales Representative",
+    "Digital Marketing Specialist",
+    "Content Writer/Copywriter",
+    "Medical Billing/Coding",
+    "Electrician",
+    "Plumber",
+    "HVAC Technician",
+    "Freelance Writing/Graphic Design",
+    "Uber/Lyft Driver",
+    "Online Tutoring or Teaching English",
+    "Project Manager",
+    "HR Specialist",
+    "Consulting or Freelancing"
+]
+[
+    "Software Engineer/Developer",
+    "Data Analyst/Data Scientist",
+    "IT Support/Help Desk",
+    "Cybersecurity Specialist",
+    "Sales Representative",
+    "Digital Marketing Specialist",
+    "Customer Success/Account Manager",
+    "Registered Nurse (RN)",
+    "Medical Assistant/Technician",
+    "Medical Billing/Coding",
+    "Financial Analyst",
+    "Bookkeeper",
+    "Tax Preparation",
+    "Online Tutor",
+    "Instructional Designer",
+    "Corporate Trainer",
+    "Graphic Designer",
+    "UX/UI Designer",
+    "Content Writer/Copywriter",
+    "Electrician/Plumber",
+    "Carpenter/Construction Worker",
+    "HVAC Technician",
+    "Virtual Assistant",
+    "Freelance Work",
+    "Social Media Manager",
+    "Customer Service Representative",
+    "Call Center Agent",
+    "Entrepreneurship"
+]
+[
+    'Software Developer',
+    'Web Developer',
+    'Data Analyst/Scientist',
+    'Cybersecurity Specialist',
+    'IT Support Specialist',
+    'Cloud Engineer',
+    'Sales Representative',
+    'Digital Marketing Specialist',
+    'Content Marketing Manager',
+    'Customer Success Manager',
+    'Account Manager',
+    'Medical Assistant',
+    'Health Coach',
+    'Medical Billing/Coding Specialist',
+    'Pharmacy Technician',
+    'Health Informatics Specialist',
+    'Virtual Assistant',
+    'Content Writer/Editor',
+    'Customer Support Representative',
+    'Online Tutor/Teacher',
+    'Project Manager',
+    'Freelance Graphic Design',
+    'Freelance Copywriting',
+    'Freelance Video Editing',
+    'Freelance Photography',
+    'Web Design',
+    'Consulting',
+    'Customer Service Representative',
+    'Call Center Agent',
+    'Technical Support Specialist',
+    'Warehouse Associate',
+    'Delivery Driver',
+    'Retail Sales Associate',
+    'Online Tutor',
+    'Corporate Trainer',
+    'Instructional Designer',
+    'ESL Teacher'
+]
+[
+    "Software Developer/Engineer",
+    "Data Analyst/Scientist",
+    "UI/UX Designer",
+    "Cybersecurity Analyst",
+    "Digital Marketing Specialist",
+    "Copywriter/Content Writer",
+    "Social Media Manager",
+    "Account Executive",
+    "Sales Development Representative",
+    "Customer Success Manager",
+    "Graphic Designer",
+    "Video Editor",
+    "Photographer",
+    "Customer Service Representative",
+    "Technical Support Specialist",
+    "Project Manager",
+    "Executive Assistant",
+    "Operations Coordinator",
+    "Medical Assistant",
+    "Healthcare IT Specialist",
+    "Freelance Writing/Editing",
+    "Freelance Graphic Design, Web Development, or Social Media Management",
+    "Rideshare Driver or Delivery (Uber, DoorDash)",
+    "Tutor",
+    "Online Course Instructor",
+    "Corporate Trainer",
+    "Restaurant Manager/Server",
+    "Event Planner/Coordinator"
+]
+[
+    "Software Engineer/Developer",
+    "Data Analyst/Scientist",
+    "UX/UI Designer",
+    "IT Support/Network Administrator",
+    "Registered Nurse (RN)",
+    "Telehealth Roles",
+    "Medical Assistant/Technician",
+    "Sales Representative",
+    "Digital Marketing",
+    "Customer Success Manager",
+    "Virtual Assistant",
+    "Freelance Writing/Content Creation",
+    "Online Tutor",
+    "Project Manager (Remote)",
+    "Electrician",
+    "Plumber",
+    "Construction Jobs",
+    "Accountant",
+    "Financial Analyst",
+    "Bookkeeper",
+    "Freelancing (General)",
+    "Small Business Owner",
+    "Teacher or Instructor",
+    "Corporate Trainer",
+    "Warehouse Worker",
+    "Supply Chain Analyst",
+    "Customer Service (Retail/Hospitality)",
+    "Restaurant/Hotel Jobs",
+    "Delivery Driver",
+    "Ride-sharing (Uber/Lyft)"
+]
+
+# she base
+[
+    "Remote Jobs (Customer Service, Virtual Assistant, Data Entry, Online Tutor)",
+    "Freelancing (Content Writing, Graphic Design, Web Development, Social Media Management)",
+    "Sales and Marketing (Sales Representative, Marketing Coordinator, Account Manager)",
+    "Healthcare (Medical Billing and Coding, Nursing Assistant)",
+    "Education and Training (Teaching, Tutoring, Corporate Training)",
+    "Technology (Software Engineer, UX/UI Designer, IT Support Specialist)",
+    "Retail and Hospitality (Retail Sales Associate, Restaurant Server, Hotel Front Desk)",
+    "Non-Profit Organizations (Fundraising, Program Coordinator)",
+    "Entrepreneurship (E-commerce, Consulting)",
+    "Gig Economy (Uber/Lyft Driver, Delivery Driver, TaskRabbit)"
+]
+[
+    "Software Developer",
+    "Data Analyst/Scientist",
+    "Technical Support Specialist",
+    "Cybersecurity Analyst",
+    "Digital Marketing Specialist",
+    "Social Media Manager",
+    "Content Writer/Copywriter",
+    "Sales Representative",
+    "Customer Support Representative",
+    "Financial Analyst",
+    "Bookkeeper/Accountant",
+    "Tax Consultant",
+    "Medical Assistant or Technician",
+    "Nursing or Healthcare Administration",
+    "Telemedicine Support",
+    "Recruiter",
+    "HR Specialist",
+    "Virtual Assistant",
+    "Freelance Graphic Designer/Photographer",
+    "Remote Writing/Editing",
+    "Online Tutor",
+    "Training Specialist",
+    "UX/UI Designer",
+    "Video Editor",
+    "Web Designer",
+    "Project Manager",
+    "Operations Coordinator"
+]
+[
+    "Software Developer/Engineer",
+    "UX/UI Designer",
+    "Data Analyst/Scientist",
+    "Cybersecurity Specialist",
+    "Product Manager",
+    "Digital Marketing Specialist",
+    "Content Writer/Copywriter",
+    "Email Marketing Specialist",
+    "SEO Specialist",
+    "Graphic Designer",
+    "Customer Service Representative",
+    "Client Success Manager",
+    "Help Desk Technician",
+    "Sales Representative/Account Executive",
+    "Business Development Representative",
+    "Inside Sales/Remote Sales",
+    "Medical Assistant/Technician",
+    "Mental Health Counselor",
+    "Healthcare Administration",
+    "Freelance Writing, Editing, or Proofreading",
+    "Virtual Assistant",
+    "Social Media Manager",
+    "Transcription or Translation Services",
+    "Rideshare Driver",
+    "Delivery Driver",
+    "Task-based Services (TaskRabbit)",
+    "Project Manager",
+    "Operations Coordinator",
+    "Bookkeeper",
+    "Financial Analyst",
+    "Tax Preparer",
+    "Video Editor",
+    "Animator/3D Designer",
+    "Web Designer/Developer",
+    "Online Tutor",
+    "Teaching Assistant",
+    "Corporate Trainer"
+]
+[
+    "Software Developer/Engineer",
+    "UX/UI Designer",
+    "Data Analyst/Scientist",
+    "Cybersecurity Specialist",
+    "Product Manager",
+    "Digital Marketing Specialist",
+    "Content Writer/Copywriter",
+    "SEO Specialist",
+    "Customer Service Representative",
+    "Client Success Manager",
+    "Sales Representative/Account Executive",
+    "Freelance Writing, Editing, or Proofreading",
+    "Virtual Assistant",
+    "Social Media Manager",
+    "Project Manager",
+    "Operations Coordinator",
+    "Bookkeeper",
+    "Financial Analyst",
+    "Web Designer/Developer",
+    "Online Tutor"
+]
+[
+    "Freelance or Contract Work",
+    "Remote Jobs",
+    "Sales Positions",
+    "Healthcare & Medical",
+    "Tech Industry (IT, Cybersecurity, Software Development)",
+    "Administrative & Virtual Assistant Roles",
+    "Customer Service",
+    "Teaching or Tutoring",
+    "Marketing and Social Media Management",
+    "Project Management",
+    "Retail or Hospitality"
+]
